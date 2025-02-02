@@ -1,0 +1,212 @@
+.navWrapper {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.navContainer {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 15px 0;
+}
+
+.hamburgerMenu {
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 2px;
+}
+
+.searchIcon {
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.nav {
+  width: 100%;
+  text-align: left;
+  display: none;
+  flex-direction: column;
+}
+
+.nav.active {
+  display: flex;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.link svg {
+  margin-right: 8px;
+}
+
+.navButton {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.navButton span {
+  margin-left: 8px;
+}
+
+.navButton:hover {
+  cursor: pointer;
+}
+
+.navButton:focus {
+  outline: none;
+}
+
+.navButton.selected{
+  color: #e50914;
+  font-weight: bold;  
+}
+
+.hidden{
+  display: none;
+}
+
+.filterButton{
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  width: 80%;
+  background-color: #e50914;
+  color: #fff;
+  transform: translateX(-50%);
+  border: none;
+  padding: 10px 0;
+}
+
+.tagsWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.tagsContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 100%;
+  left: 0;
+  background-color: #000000da;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.747);
+  padding: 20px;
+  border-radius: 4px;
+  z-index: 1000;
+  width: 250px;
+  min-height: 400px;
+}
+
+.columnWrapper{
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  flex: 1;
+}
+
+.column ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.column button {
+  padding: 5px 0;
+  margin: 20px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.logo{
+  position: absolute;
+  right: 20px;
+  top: 13px;
+  height: 30px;
+}
+
+
+
+@media (min-width: 768px) {
+  .logo{
+    position: relative;
+    top: -7px;
+    right: 10px;
+    height: 34px;
+  }
+
+  .hidden{
+    display: block;
+  }
+
+  .navContainer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav {
+    display: flex;
+    text-align: right;
+  }
+
+  .navLinks {
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 0;
+  }
+
+  .hamburgerMenu {
+    display: none;
+  }
+
+  .link:hover {
+    color: #e50914;
+  }
+
+  .navButton:hover{
+    color: #e50914; 
+  }
+
+  .filterButton{
+    padding: 5px 0;
+  }
+
+  .filterButton:hover{
+    background-color: #e50914cb;
+    color: #ffffffcb;
+  }  
+}

@@ -1,0 +1,24 @@
+.VideoPlayerWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 5vw;
+}
+
+
+@media (min-width: 768px) {
+    .VideoPlayerWrapper {
+        display: flex;
+        flex-direction: column;
+        width: calc(100%-40px);
+        margin: 0 15vw;
+    }
+
+    .VideoPlayer {
+        width: 70vw;
+        height: 80vh;
+    }
+
+    .title {
+        align-self: flex-start;
+    }
+}

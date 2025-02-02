@@ -1,0 +1,57 @@
+.sliderContainer {
+    position: relative;
+    overflow: hidden;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    flex: 1;
+}
+
+.split {
+    flex: 0 0 auto;
+    margin-right: 10px;
+}
+
+.icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1;
+    color: #000;
+    transition: transform 0.3s ease;
+    height: 100%;
+    width: 40px;
+}
+
+.iconLeft {
+    left: 0;
+}
+
+.iconRight {
+    right: 0;
+}
+
+.iconLeft:hover {
+    background-color: #0000006e;
+}
+
+.iconRight:hover {
+    background-color: #0000006e;
+}
+
+.margin{
+    margin: 0 !important;
+}
+
+@media(min-width: 768px)
+{
+    .row{
+    overflow-x: hidden;
+    }
+}

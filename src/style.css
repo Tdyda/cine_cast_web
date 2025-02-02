@@ -1,0 +1,24 @@
+/* body {
+  background-image: url("assets/images/background.avif");
+  height: 100%;
+
+  /* Center and scale the image nicely 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  color: #fff;
+} */
+html, body {
+  min-height: 100%;        /*Ustawienie wysokości na 100% dla html i body */
+  margin: 0;           /* Usunięcie marginesów */
+}
+
+body {
+  background-color: #221f1f;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  color: #fff;
+}

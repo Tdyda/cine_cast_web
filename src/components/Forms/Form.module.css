@@ -1,0 +1,45 @@
+.form {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
+    width: 80%;
+}
+
+.form input{
+    display: block;
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #bbbbbb38;
+    border-radius: 4px;
+    background-color: #2E2B2B;
+    color: #fff;
+    outline: none;
+    margin: 30px auto;
+}
+
+.form button{
+    background-color: #e50914;
+    color: #fff;
+    padding: 5px 0;
+    border: none;
+    display: block;
+    width: 80%;
+    margin: 30px auto;
+}
+
+@media(min-width: 768px) {
+
+    .form{
+        width: 30%;
+    }
+
+    .formButton:hover,
+    .fileButton:hover {
+        background-color: #e50914cb;
+        color: #ffffffcb;
+        cursor: pointer;
+    }
+
+
+}

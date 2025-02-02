@@ -1,0 +1,48 @@
+.movieCard {
+    border: none;
+}
+
+.link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.link-text {
+    padding: 10px 0 0 0;
+    font-size: 16px;
+
+}
+
+.card {
+    border: 1px solid #ffffff80;
+    padding-bottom: 20px;
+    border-radius: 6px 6px 0 0;
+}
+
+.manageWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.manageButton {
+    background-color: #e50914;
+    color: #fff;
+    padding: 5px 0;
+    border: none;
+    width: 45%;
+    margin: 15px 0;
+}
+
+@media (min-width: 720px) {
+    .link-text {
+        padding-left: 10px;
+    }
+
+    .card-size {
+        width: calc((100% - 20px)/5);
+    }
+
+    .manageButton:hover {
+        background-color: #e50914cb;
+    }
+}

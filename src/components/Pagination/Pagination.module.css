@@ -1,0 +1,14 @@
+.color{
+    background-color: #413e3e;
+    color: #fff;
+    border: none;
+}
+
+.active button{
+    background-color: #00000073;
+}
+
+.pagination li:hover > button{
+    background-color: #00000073; /* Przykład: ustawienie niebieskiego tła */
+    color: #fff; /* Opcjonalnie zmiana koloru tekstu na biały */
+  }

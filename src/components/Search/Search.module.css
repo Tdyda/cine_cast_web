@@ -1,0 +1,20 @@
+div .formControl:focus {
+    outline: none;
+    border: solid 1px #e50914;
+    /* Red border */
+    box-shadow: 0 0 10px rgba(229, 9, 20, 0.5);
+    /* Red glow */
+}
+
+@media (min-width: 768px) {
+    .searchBar {
+        position: absolute;
+        top: 5%;
+        left: 50%;
+        color: #e50914;
+        min-width: 700px;
+        max-width: 1200px;
+        transform: translateX(-50%);
+    }
+
+}
