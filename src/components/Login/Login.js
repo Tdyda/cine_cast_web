@@ -11,8 +11,7 @@ const Login = () => {
     setError('');
 
     try {
-      const response = await fetch('https://doublecodestudio.pl:51821/videoService/api/Account/login', {
-        // const response = await fetch('http://192.168.0.43/videoService/api/Account/login', {
+      const response = await fetch('yourdomain/api/Account/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,70 +1,128 @@
-# Getting Started with Create React App
+# README
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Projekt React - Konfiguracja
 
-## Available Scripts
+Ten projekt jest aplikacją frontendową opartą na React. Poniżej znajdują się instrukcje dotyczące konfiguracji i uruchomienia aplikacji.
 
-In the project directory, you can run:
+### 1. Klonowanie repozytorium
 
-### `npm start`
+Najpierw sklonuj repozytorium na swój lokalny komputer:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```sh
+git clone https://github.com/Tdyda/cine_cast_web.git
+cd cine_cast_web
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2. Instalacja zależności
 
-### `npm test`
+Przed uruchomieniem projektu należy zainstalować wszystkie wymagane zależności. W katalogu głównym projektu uruchom:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```sh
+npm install
+```
 
-### `npm run build`
+### 3. Konfiguracja adresu serwera API
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Aby aplikacja poprawnie komunikowała się z serwerem, należy zmienić domyślny adres `yourdomain` na adres Twojego serwera w dwóch plikach:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### a) `src/components/Login/Login.js`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Znajdź poniższy fragment kodu i zastąp `yourdomain` adresem Twojego serwera:
 
-### `npm run eject`
+```js
+try {
+  const response = await fetch('yourdomain/api/Account/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email: email,
+      password: password,
+    }),
+  });
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  const data = await response.json();
+  localStorage.setItem('token', data.token);
+  localStorage.setItem('refreshToken', data.refreshToken);
+  localStorage.setItem('userId', data.userId);
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  window.location.href = '/';
+} catch (err) {
+  setError('Błędny e-mail lub hasło');
+}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### b) `src/components/axiosConfig.js`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Znajdź poniższy fragment kodu i zastąp `yourdomian` adresem Twojego serwera:
 
-## Learn More
+```js
+const api = axios.create({
+  baseURL: 'yourdomian/api',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 4. Uruchomienie aplikacji
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Aby uruchomić aplikację w trybie deweloperskim, użyj poniższej komendy:
 
-### Code Splitting
+```sh
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Aplikacja powinna być dostępna pod adresem:
 
-### Analyzing the Bundle Size
+```
+http://localhost:3000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 5. Budowanie aplikacji
 
-### Making a Progressive Web App
+Aby zbudować aplikację do wdrożenia, użyj:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```sh
+npm run build
+```
 
-### Advanced Configuration
+### 6. Wdrożenie na serwer produkcyjny
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Aby wdrożyć aplikację na serwer produkcyjny:
 
-### Deployment
+1. Zbuduj aplikację za pomocą:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+   ```sh
+   npm run build
+   ```
 
-### `npm run build` fails to minify
+2. Skopiuj zawartość folderu `build/` na swój serwer.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+3. Jeśli używasz serwera Apache lub Nginx, skonfiguruj go do obsługi plików statycznych. W przypadku Nginx dodaj konfigurację:
+
+   ```nginx
+   server {
+       listen 80;
+       server_name yourdomain.com;
+       root /ścieżka/do/build;
+       index index.html;
+       location / {
+           try_files $uri /index.html;
+       }
+   }
+   ```
+
+4. Zrestartuj serwer, aby zastosować zmiany.
+
+### 7. Dodatkowe informacje
+
+- Upewnij się, że serwer API jest uruchomiony i dostępny pod poprawnym adresem.
+- Sprawdź konsolę przeglądarki w przypadku błędów związanych z połączeniem z API.
+
+---
+
+**Autor:** [Tomasz Dyda]  
+**Repozytorium:** [https://github.com/Tdyda/cine_cast_web.git]
+
